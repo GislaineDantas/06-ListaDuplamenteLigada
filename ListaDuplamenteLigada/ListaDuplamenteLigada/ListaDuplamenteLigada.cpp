@@ -54,7 +54,7 @@ void menu()
 			break;
 		case 2:inserirElemento();
 			break;
-		case 3: exibirQuantidadeElementos(); 
+		case 3: exibirQuantidadeElementos();
 			break;
 		case 4: exibirElementos();
 			break;
@@ -150,17 +150,59 @@ void inserirElemento()
 // funções a serem implementadas no exericio
 void exibirReverso()
 {
-
+	if (ultimo == NULL) {
+		cout << "Lista vazia \n";
+		return;
+	}
+	else {
+		cout << "Elementos: \n";
+		NO* aux = ultimo;
+		while (aux != NULL) {
+			cout << aux->valor << endl;
+			aux = aux->ant;
+		}
+	}
 }
 
 void excluirPrimeiroElemento()
 {
+	if (primeiro == NULL) {
+		cout << "Lista vazia \n";
+		return;
+	}
+	else {
+		NO* excluir = primeiro;
+		primeiro = primeiro->prox;
 
+		if (primeiro != NULL) {
+			primeiro->ant = NULL;
+		}
+		else {
+			ultimo = NULL;
+		}
+		free(excluir);
+	}
 }
 
 void excluirUltimoElemento()
 {
+	if (ultimo == NULL) {
+		cout << "Lista vazia \n";
+		return;
+	}
+	else {
 
+		NO* excluir = ultimo;
+		ultimo = ultimo->ant;
+
+		if (ultimo != NULL) {
+			ultimo->prox = NULL;
+		}
+		else {
+			primeiro = NULL;
+		}
+		free(excluir);
+	}
 }
 
 
